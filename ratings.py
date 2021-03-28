@@ -6,19 +6,17 @@ Show ratings in alphabetical order
 
 """
 #define function for rating restaurants
-def rate_restaurants(ratings):
+def rate_restaurants():
     ratings = open("scores.txt")
 
-    restaurants_scores = {}
+    restaurant_scores = {}
     
     for rating in ratings:
-        name, score = rating.rstrip().split(":")
+        restaurant_name, score = rating.rstrip().split(":")
         #dict_name[key] = value
-        restaurants_scores[name] = score
-    
-    restaurants_scores = sorted(restaurants_scores)
-    print(f"{name} has a score of {score}")
-    # return sorted(restaurants_scores)
+        restaurant_scores[restaurant_name] = int(score)
+    for restaurant_name, score in sorted(restaurant_scores.items()):
+        print(f"{restaurant_name} has a score of {score}")
 
 
 
